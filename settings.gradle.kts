@@ -21,5 +21,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "IPTestApp"
 include(":app")
-include(":iptestdatabase")
-include(":features:iptestmain")
+include(":iptaskdatabase")
+include(":features:iptaskmain")
+include(":iptask-data")
