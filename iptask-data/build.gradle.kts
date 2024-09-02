@@ -38,4 +38,6 @@ dependencies {
     implementation(libs.kotlinx.coroutines.android)
 
     implementation(project(":iptaskdatabase"))
+
+    implementation(libs.jakarta.inject)
 }

@@ -3,6 +3,6 @@ package ru.nemov.ittestmain
 import androidx.compose.runtime.Composable
 
 @Composable
-fun IPTestMain() {
+fun IPTaskMain() {
 
 }

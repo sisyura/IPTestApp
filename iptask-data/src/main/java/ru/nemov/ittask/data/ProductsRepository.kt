@@ -1,11 +1,12 @@
 package ru.nemov.ittask.data
 
+import jakarta.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import ru.nemov.iptestdatabase.IPTaskDatabase
 import ru.nemov.ittask.data.model.Product
 
-class ProductsRepository(
+class ProductsRepository @Inject constructor (
     private val database: IPTaskDatabase
 ) {
 
