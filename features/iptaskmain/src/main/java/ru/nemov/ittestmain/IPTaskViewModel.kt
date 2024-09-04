@@ -1,13 +1,11 @@
 package ru.nemov.ittestmain
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.flowOf
-import kotlinx.coroutines.flow.map
-import ru.nemov.ittask.data.ProductsRepository
+import kotlinx.coroutines.flow.stateIn
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -16,6 +14,7 @@ internal class IPTaskViewModel @Inject constructor (
     getAllProductsUseCase: Provider<GetAllProductsUseCase>
 ) : ViewModel() {
 
-    val products: Flow<List<Product>> = getAllProductsUseCase.get().invoke()
+    val products: StateFlow<List<ProductUI>> = getAllProductsUseCase.get().invoke()
+        .stateIn(viewModelScope, SharingStarted.Lazily, listOf())
 
 }

@@ -9,7 +9,7 @@ class GetAllProductsUseCase @Inject constructor(
     private val repository: ProductsRepository
 ) {
 
-    operator fun invoke(): Flow<List<Product>> {
+    internal operator fun invoke(): Flow<List<ProductUI>> {
         return repository.getAllProducts()
             .map { product ->
                 product.map { it.toUiProduct() }
@@ -17,8 +17,6 @@ class GetAllProductsUseCase @Inject constructor(
     }
 }
 
-private fun ru.nemov.ittask.data.model.Product.toUiProduct(): Product {
-    return Product(
-
-    )
+private fun ru.nemov.ittask.data.model.Product.toUiProduct(): ProductUI {
+    return ProductUI(id, name, time, tags, amount)
 }

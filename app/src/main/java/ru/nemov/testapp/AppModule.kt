@@ -6,6 +6,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import ru.nemov.common.AppDispatchers
 import ru.nemov.iptestdatabase.IPTaskDatabase
 import javax.inject.Singleton
 
@@ -18,4 +19,8 @@ object AppModule {
     fun provideDatabase(@ApplicationContext context: Context): IPTaskDatabase {
         return IPTaskDatabase(context)
     }
+
+    @Provides
+    @Singleton
+    fun provideAppCoroutineDispatchers(): AppDispatchers = AppDispatchers()
 }

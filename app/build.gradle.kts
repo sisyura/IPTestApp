@@ -78,4 +78,5 @@ dependencies {
 
     implementation(project(":iptaskdatabase"))
     implementation(project(":iptask-data"))
+    implementation(project(":iptask-common"))
 }
